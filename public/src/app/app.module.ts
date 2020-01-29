@@ -6,19 +6,33 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TicketsComponent } from './tickets/tickets.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { AddTicketComponent } from './add-ticket/add-ticket.component';
+import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpService } from './http.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ProjectsComponent,
-    TicketsComponent
+    TicketsComponent,
+    AddProjectComponent,
+    AddTicketComponent,
+    EditTicketComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
