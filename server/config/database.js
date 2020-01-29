@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+    path = require('path');
+    fs = require('fs');
+
+mongoose.connect('mongodb://localhost/authorsDB');
+
+var models_path = path.join(__dirname, './../models');
+fs.readdirSync(models_path).forEach(function(file) {
+    if(file.indexOf('.js') >= 0) {
+        // require the file (this runs the model file which registers the schema)
+        require(models_path + '/' + file);
+      }
+})
