@@ -11,7 +11,7 @@ export class HttpService {
 
   // Projects
   getAllProj(){
-    return this._http.get('/dashboard');
+    return this._http.get('/home');
   }
   getOneProj(proj_id){
     return this._http.get(`/projects/${proj_id}`);

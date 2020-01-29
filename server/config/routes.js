@@ -2,7 +2,7 @@ const controllers = require('../controllers/controllers');
 
 module.exports = (app) => {
     // For Projects
-    app.get('/dashboard', controllers.getAllProj);
+    app.get('/home', controllers.getAllProj);
     app.get('/projects/:id', controllers.getOneProj);
     app.post('/projects', controllers.createProj);
     app.put('/projects/:id', controllers.updateProj);
