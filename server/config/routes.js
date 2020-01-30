@@ -1,4 +1,5 @@
 const controllers = require('../controllers/controllers');
+const path = require('path');
 
 module.exports = (app) => {
     // For Projects
@@ -13,4 +14,8 @@ module.exports = (app) => {
     app.get('/tickets/:id', controllers.getOneTicket);
     app.put('/tickets/:id', controllers.updateTicket);
     app.delete('/deltic/:id', controllers.deleteTicket);
+
+    app.all('*', (req,res,next) => {
+        res.sendFile(path.resolve('./public/dist/public/index.html'));
+    });
 }

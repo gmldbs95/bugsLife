@@ -1,20 +1,67 @@
-<div class="row">
-    <div class="col-md-4">
-        <h5>Tickets by: Priority</h5>
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Ticket ID:</th>
-                </tr>
-            </thead>
-        </table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>All Projects</h3>
+            <a [routerLink]="['/add-project']">Add new project</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Project ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let project of projects'>
+                        <td>{{project.name}}</td>
+                        <td>{{project._id}}</td>
+                        <td>
+                            <button [routerLink]="['/get-project', project._id]" class="btn btn-primary">Details</button> | 
+                            <button [routerLink]="['/edit-project', project._id]" class="btn btn-warning">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h5>Tickets by: Type</h5>
-        bye
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Tickets: Priority</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Priority</th>
+                        <th>Type</th>
+                        <th>Title</th>
+                        <th>Project</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor='let project of projects'>
+                    <tr *ngFor='let ticket of project.tickets'>
+                        <td>{{ticket.priority}}</td>
+                        <td>{{ticket.type}}</td>
+                        <td>{{ticket.title}}</td>
+                        <td>{{project.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="col-md-6">
+            <h3>Tickets by: Status</h3>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h5>Tickets by: Status</h5>
-        bye
-    </div>
+
 </div>
+
+<!-- 
+<div>
+    <div style="display: inline-block">
+        <canvas baseChart
+            [datasets]='barChartData'
+            [labels]='barChartLabels'
+            [options]='barChartOption'
+            [legends]='barChartLegend'
+            [chartType]='barChartType'></canvas>
+    </div>
+</div> -->

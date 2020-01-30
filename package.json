@@ -9,6 +9,7 @@
   "author": "Kaelo",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "express": "^4.17.1",
     "mongoose": "^5.8.10",
