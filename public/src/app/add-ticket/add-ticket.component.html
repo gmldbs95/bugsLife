@@ -1,1 +1,16 @@
-<p>add-ticket works!</p>
+<div class="container">
+    <div class="row">
+        <br>
+        <h3>Add a new ticket to PROJECT NAME</h3>
+        <div class="col-md-12">
+            <form (submit)="addNewProj()">
+                <br>
+                <p>Project Name: <input type="text" name="newProj.name"></p>
+                <p>Project Description: </p>
+                <textarea name="newProj.desc" cols="30" rows="5"></textarea>
+                <br>
+                <button class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

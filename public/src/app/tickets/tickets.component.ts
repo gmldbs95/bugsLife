@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+
 
 @Component({
   selector: 'app-tickets',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
 
-  constructor() { }
+  projects = [];
+
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
+    this.getAllProj();
+  }
+
+  getAllProj(){
+    let obs = this._httpService.getAllProj();
+    obs.subscribe((data: any) => {
+      this.projects = data.results;
+      console.log('getting all my projects...', data)
+    })
   }
 
 }

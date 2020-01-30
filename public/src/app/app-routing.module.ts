@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'get-ticket/:id', component: GetTicketComponent},
 
   {path: 'add-project', component: AddProjectComponent},
-  {path: 'add-ticket', component: AddTicketComponent},
+  {path: 'add-ticket/:id', component: AddTicketComponent},
 
   {path: 'edit-project/:id', component: EditProjectComponent},
   {path: 'edit-ticket/:id', component: EditTicketComponent},

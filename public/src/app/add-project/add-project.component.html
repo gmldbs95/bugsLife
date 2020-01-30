@@ -2,14 +2,13 @@
     <div class="row">
         <h3>Add a new Project</h3>
         <div class="col-md-12">
-            <form style="" (submit)="addNewProj()">
-                <p>Project Name:</p>
-                <input type="text" name="newProj.name">
+            <form (submit)="addNewProj()">
                 <br>
-                <p>Project Description:</p>
-                <textarea name="newProj.desc" cols="30" rows="5"></textarea>
+                <p>Project Name: <input type="text" name="newProj.name" [(ngModel)]="newProj.name"></p>
+                <p>Project Description: </p>
+                <textarea name="newProj.desc" cols="30" rows="5" [(ngModel)]="newProj.desc"></textarea>
                 <br>
-                <button class="btn btn-success">Submit new project</button>
+                <button class="btn btn-success">Submit</button>
             </form>
         </div>
     </div>
