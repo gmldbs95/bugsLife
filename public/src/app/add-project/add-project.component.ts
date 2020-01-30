@@ -22,7 +22,7 @@ export class AddProjectComponent implements OnInit {
     }
   }
 
-  goHome(){
+  seeAllProj(){
     this._router.navigate(['/projects']);
   }
 
@@ -34,7 +34,7 @@ export class AddProjectComponent implements OnInit {
         name: '',
         desc:''
       };
-      this.goHome();
+      this.seeAllProj();
     })
   }
 

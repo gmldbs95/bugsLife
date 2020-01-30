@@ -3,12 +3,43 @@
         <br>
         <h3>Add a new ticket to PROJECT NAME</h3>
         <div class="col-md-12">
-            <form (submit)="addNewProj()">
-                <br>
-                <p>Project Name: <input type="text" name="newProj.name"></p>
-                <p>Project Description: </p>
-                <textarea name="newProj.desc" cols="30" rows="5"></textarea>
-                <br>
+            <form style="text-align: center;" (submit)="addNewProj()">
+                <div class="row">
+                    <div style="text-align: left;" class="col-md-4">
+                        <br>
+                        <p>Ticket Name: <input type="text" name="newProj.name"></p>
+                        <p>Ticket Description: </p>
+                        <textarea name="newProj.desc" cols="30" rows="5"></textarea>
+                        <br>
+                    </div>
+                    <div style="text-align: left;" class="col-md-6">
+                        <p>Ticket Type: </p>
+                        <select name="">
+                            <option value="WTF">WTF</option>
+                            <option value="Bug">Bug</option>
+                            <option value="Run Time">Run Time</option>
+                            <option value="Logic">Logic</option>
+                            <option value="Database">Database</option>
+                            <option value="API">API</option>
+                        </select>
+                        <br>
+                        <p>Ticket Priority: </p>
+                        <select name="">
+                            <option value="None">None</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                        br
+                        <p>Ticket Status: </p>
+                        <select name="">
+                            <option value="Open">Open</option>
+                            <option value="In progress">In progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
                 <button class="btn btn-success">Submit</button>
             </form>
         </div>
