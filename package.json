@@ -9,8 +9,10 @@
   "author": "Kaelo",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^2.9.3",
     "express": "^4.17.1",
     "mongoose": "^5.8.10",
+    "ng2-charts": "^2.3.0",
     "path": "^0.12.7"
   }
 }

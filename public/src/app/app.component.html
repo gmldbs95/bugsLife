@@ -9,6 +9,16 @@
   <body>
     <div class="container">
       <h1>Bug's Life: Bug Tracker</h1>
+      <div class="row">
+        <div class="col-sm-6">
+            <h3>Options</h3>
+        </div>
+        <div class="col-sm-6">
+            <a [routerLink]="['/']">Dashboard</a> |
+            <a [routerLink]="['/projects']">My Projects</a> |
+            <a [routerLink]="['/tickets']">My Tickets</a>
+        </div>
+    </div>
       <router-outlet></router-outlet>
     </div>
   </body>
