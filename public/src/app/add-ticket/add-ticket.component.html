@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
         <br>
-        <h3>Add a new ticket to <span style="color: blue;">{{thisProj.name}}</span></h3>
+        <h3>Add a new ticket to <span style="color: cornflowerblue;">{{thisProj.name}}</span></h3>
         <div *ngIf='thisProj' class="col-md-12">
             <form style="text-align: center;" (submit)="addTicketProj()">
                 <div class="row">
                     <div style="text-align: left;" class="col-md-4">
                         <br>
-                        <p>Ticket Name: <input type="text" name="newTicket.title" [(ngModel)]='newTicket.title'></p>
+                        <p>Ticket Title: <input type="text" name="newTicket.title" [(ngModel)]='newTicket.title'></p>
                         <p>Ticket Description: </p>
                         <textarea name="newTicket.tic_desc" [(ngModel)]='newTicket.tic_desc' cols="30" rows="5"></textarea>
                         <br>

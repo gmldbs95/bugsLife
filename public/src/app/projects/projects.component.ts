@@ -25,5 +25,12 @@ export class ProjectsComponent implements OnInit {
     })
   }
 
+  deleteProj(project){
+    let obs = this._httpService.deleteProj(project._id, project)
+    obs.subscribe(data => {
+      console.log(`Deleting Project w/ID: ${project._id}`, project);
+      this.getAllProj();
+    })
+  }
 
 }

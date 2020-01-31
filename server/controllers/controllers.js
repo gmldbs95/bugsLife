@@ -96,6 +96,13 @@ module.exports = {
             .catch(err => {
                 res.json({ message: "error", results: err });
             })
+        Ticket.findOneAndUpdate({_id:req.params.id}, req.body, {runValidators: true, new: true})
+            .then(data => {
+                res.json({msg: 'success', results: data})
+            })
+            .catch(err => {
+                res.json({msg: 'error', results: err})
+            })
     },
     deleteTicket: (req,res) => {
         Project.findOneAndUpdate({}, {$pull: {'tickets': {'_id':req.params.id}}})
