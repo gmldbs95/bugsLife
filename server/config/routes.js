@@ -11,6 +11,7 @@ module.exports = (app) => {
     app.delete('/delproj/:id', controllers.deleteProj);
     
     // For Tickets
+    app.get('/tickets', controllers.getAllTic);
     app.get('/tickets/:id', controllers.getOneTicket);
     app.put('/tickets/:id', controllers.updateTicket);
     app.delete('/deltic/:id', controllers.deleteTicket);

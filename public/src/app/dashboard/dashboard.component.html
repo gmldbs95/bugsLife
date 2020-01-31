@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 table_proj">
             <h3>All Projects</h3>
             <a [routerLink]="['/add-project']">Add new project</a>
-            <table class="table">
+            <table class=" table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -17,7 +17,7 @@
                         <td>{{project._id}}</td>
                         <td>
                             <button [routerLink]="['/get-project', project._id]" class="btn btn-primary">Details</button> | 
-                            <button [routerLink]="['/edit-project', project._id]" class="btn btn-warning">Edit</button>
+                            <button (click)='deleteProj(project)' class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 table_tic">
             <h3>Tickets: Priority</h3>
             <table class="table">
                 <thead>
@@ -38,16 +38,16 @@
                 </thead>
                 <tbody *ngFor='let project of projects'>
                     <tr *ngFor='let ticket of project.tickets'>
-                        <td>{{ticket.priority}}</td>
-                        <td>{{ticket.type}}</td>
-                        <td>{{ticket.title}}</td>
-                        <td>{{project.name}}</td>
+                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.priority}}</td>
+                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.type}}</td>
+                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</td>
+                        <td [routerLink]="['/get-project', project._id]">{{project.name}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     
-        <div class="col-md-6">
+        <div class="col-md-6 table_tic">
             <h3>Tickets: Status</h3>
             <table class="table">
                 <thead>
@@ -60,10 +60,10 @@
                 </thead>
                 <tbody *ngFor='let project of projects'>
                     <tr *ngFor='let ticket of project.tickets'>
-                        <td>{{ticket.status}}</td>
-                        <td>{{ticket.type}}</td>
-                        <td>{{ticket.title}}</td>
-                        <td>{{project.name}}</td>
+                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.status}}</td>
+                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.type}}</td>
+                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</td>
+                        <td [routerLink]="['/get-project', project._id]">{{project.name}}</td>
                     </tr>
                 </tbody>
             </table>

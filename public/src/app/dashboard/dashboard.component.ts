@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,8 +27,10 @@ export class DashboardComponent implements OnInit {
   // ];
 
   projects = [];
+  chosenOne: any;
 
-  constructor(private _httpService: HttpService) { }
+  constructor(private _httpService: HttpService,
+              private _router: Router) { }
 
   ngOnInit() {
     this.getAllProj();
@@ -41,5 +44,12 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  deleteProj(project){
+    let obs = this._httpService.deleteProj(project._id, project)
+    obs.subscribe(data => {
+      console.log(`Deleting Project w/ID: ${project._id}`, project);
+      this.getAllProj();
+    })
+  }
 
 }
