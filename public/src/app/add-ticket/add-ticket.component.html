@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <br>
-        <h3>Add a new ticket to PROJECT NAME</h3>
+        <h3>Add a new ticket to <span style="color: blue;">{{thisProj.name}}</span></h3>
         <div *ngIf='thisProj' class="col-md-12">
             <form style="text-align: center;" (submit)="addTicketProj()">
                 <div class="row">
@@ -12,7 +12,7 @@
                         <textarea name="newTicket.tic_desc" [(ngModel)]='newTicket.tic_desc' cols="30" rows="5"></textarea>
                         <br>
                     </div>
-                    <div style="text-align: left;" class="col-md-6">
+                    <div style="text-align: left;" class="col-md-4">
                         <p>Ticket Type: </p>
                         <select name="newTicket.type" [(ngModel)]='newTicket.type'>
                             <option value="WTF">WTF</option>

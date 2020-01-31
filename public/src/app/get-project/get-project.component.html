@@ -1,1 +1,68 @@
-<p>get-project works!</p>
+<div class="conatiner">
+    <div class="row">
+        <div class="col-ms-12">
+            <br>
+            <h3>Details of project: <span style="color: blue;">{{thisProj.name}}</span></h3>
+            <a [routerLink]="['/add-ticket', thisProjID]">Add new ticket to this project</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr class="table-info">
+                    <th>Project Name</th>
+                    <th colspan="2">Project Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{thisProj.name}}</td>
+                    <td colspan="2">{{thisProj.desc}}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr class="table-info">
+                    <th>Project Created at</th>
+                    <th>Project Updated at</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{thisProj.createdAt}}</td>
+                    <td>{{thisProj.updatedAt}}</td>
+                    <td>
+                        <button [routerLink]="['/edit-project', thisProjID]" class="btn btn-warning">Edit</button> | 
+                        <button (click)='deleteProj(thisProj)' class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>All <span style="color: blue;">{{thisProj.name}}'s</span> tickets:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-info">
+                    <th>Ticket ID</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let ticket of thisProj.tickets'>
+                    <td><a [routerLink]="['/get-ticket', ticket._id]">{{ticket._id}}</a></td>
+                    <td><a [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</a></td>
+                    <td>{{ticket.priority}}</td>
+                    <td>{{ticket.status}}</td>
+                    <td>{{ticket.type}}</td>
+                    <td>
+                        <button [routerLink]="['/edit-ticket', ticket._id]" class="btn btn-warning">Edit/Update</button>
+                        <!-- <button (click)='deleteTic(ticket)' class="btn btn-danger">Delete</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -43,8 +43,8 @@ export class AddTicketComponent implements OnInit {
     })
   }
 
-  seeAllProj(){
-    this._router.navigate(['/projects']);
+  seeThisProj(){
+    this._router.navigate([`/get-project/${this.thisProj._id}`]);
   }
 
   addTicketProj(){
@@ -59,7 +59,7 @@ export class AddTicketComponent implements OnInit {
           priority: '',
           status: ''
         };
-        // this.seeAllProj();
+        this.seeThisProj();
       })
 
     })
