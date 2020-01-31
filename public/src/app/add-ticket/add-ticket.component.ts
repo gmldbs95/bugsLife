@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,8 @@ export class AddTicketComponent implements OnInit {
   newTicket: any;
 
   constructor(private _httpService: HttpService,
-              private _router: Router) { }
+              private _router: Router,
+              private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.newTicket = {
@@ -23,25 +24,44 @@ export class AddTicketComponent implements OnInit {
       type: '',
       priority: '',
       status: ''
-    }
+    };
+    this.thisProj = {
+      name: '',
+      desc: ''
+    };
+    this.findMe();
+
+  }
+
+  findMe(){
+    this._route.params.subscribe((params) => {
+      let obs = this._httpService.getOneProj(params['id'])
+      obs.subscribe((data: any) => {
+        this.thisProj = data.results;
+        console.log('Is this working??', this.thisProj)
+      })
+    })
   }
 
   seeAllProj(){
     this._router.navigate(['/projects']);
   }
 
-  addNewProj(pro_id){
-    let obs = this._httpService.addTicket(pro_id, this.newTicket);
-    obs.subscribe(data => {
-      console.log('Adding NEW PROJECT!!!', this.newTicket);
-      this.newTicket = {
-        title: '',
-        tic_desc: '',
-        type: '',
-        priority: '',
-        status: ''
-      };
-      this.seeAllProj();
+  addTicketProj(){
+    this._route.params.subscribe((params) => {
+      let obs = this._httpService.addTicket(params['id'], this.newTicket);
+      obs.subscribe(data => {
+        console.log('Adding NEW TICKET TO proj!!!', this.newTicket);
+        this.newTicket = {
+          title: '',
+          tic_desc: '',
+          type: '',
+          priority: '',
+          status: ''
+        };
+        // this.seeAllProj();
+      })
+
     })
   }
 

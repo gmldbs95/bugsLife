@@ -23,7 +23,7 @@ export class HttpService {
     return this._http.put(`/projects/${proj_id}`, updated_proj);
   }
   addTicket(proj_id, added_tic){
-    return this._http.put(`/porjects/${proj_id}/addticket`, added_tic);
+    return this._http.put(`/projects/${proj_id}/addticket`, added_tic);
   }
   deleteProj(proj_id, project){
     return this._http.delete(`/delproj/${proj_id}`, project);
