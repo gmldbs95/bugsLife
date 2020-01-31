@@ -1,1 +1,46 @@
 <p>get-ticket works!</p>
+<div class="conatiner">
+    <div class="row">
+        <div class="col-ms-12">
+            <br>
+            <h3>Details of ticket: <span style="color: cornflowerblue;">{{thisTic.title}}</span></h3>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr class="table-info">
+                    <th colspan="2">Ticket Title</th>
+                    <th colspan="4">Ticket Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">{{thisTic.title}}</td>
+                    <td colspan="4">{{thisTic.tic_desc}}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr class="table-info">
+                    <th>Ticket ID</th>
+                    <th>Ticket Type</th>
+                    <th>Ticket Priority</th>
+                    <th>Ticket Status</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{thisTic._id}}</td>
+                    <td>{{thisTic.type}}</td>
+                    <td>{{thisTic.priority}}</td>
+                    <td>{{thisTic.status}}</td>
+                    <td>{{thisTic.createdAt}}</td>
+                    <td>{{thisTic.updatedAt}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button [routerLink]="['/edit-ticket', thisTicID]" class="btn btn-warning">Edit</button>
+    </div>
+</div>

@@ -38,8 +38,8 @@
                 </thead>
                 <tbody *ngFor='let project of projects'>
                     <tr *ngFor='let ticket of project.tickets'>
-                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.priority}}</td>
-                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.type}}</td>
+                        <td>{{ticket.priority}}</td>
+                        <td>{{ticket.type}}</td>
                         <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</td>
                         <td [routerLink]="['/get-project', project._id]">{{project.name}}</td>
                     </tr>
@@ -60,8 +60,8 @@
                 </thead>
                 <tbody *ngFor='let project of projects'>
                     <tr *ngFor='let ticket of project.tickets'>
-                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.status}}</td>
-                        <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.type}}</td>
+                        <td>{{ticket.status}}</td>
+                        <td>{{ticket.type}}</td>
                         <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</td>
                         <td [routerLink]="['/get-project', project._id]">{{project.name}}</td>
                     </tr>

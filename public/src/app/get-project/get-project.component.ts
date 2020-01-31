@@ -13,8 +13,8 @@ export class GetProjectComponent implements OnInit {
   thisProjID: any;
 
   constructor(private _httpService: HttpService,
-    private _router: Router,
-    private _route: ActivatedRoute) { }
+              private _router: Router,
+              private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getThisProj();
@@ -23,7 +23,7 @@ export class GetProjectComponent implements OnInit {
       console.log(params['id']);
       this.thisProjID = params['id'];
     });
-  }
+  } // END
 
   goToProjects(){
     this._router.navigate(['/projects'])
