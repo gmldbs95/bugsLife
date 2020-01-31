@@ -53,12 +53,13 @@
             <tbody>
                 <tr *ngFor='let ticket of thisProj.tickets'>
                     <td><a [routerLink]="['/get-ticket', ticket._id]">{{ticket._id}}</a></td>
-                    <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</td>                    <td>{{ticket.priority}}</td>
+                    <td [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</td>                    
+                    <td>{{ticket.priority}}</td>
                     <td>{{ticket.status}}</td>
                     <td>{{ticket.type}}</td>
                     <td>
-                        <button [routerLink]="['/edit-ticket', ticket._id]" class="btn btn-warning">Edit/Update</button>
-                        <!-- <button (click)='deleteTic(ticket)' class="btn btn-danger">Delete</button> -->
+                        <button [routerLink]="['/edit-ticket', ticket._id]" class="btn btn-warning">Edit/Update</button> | 
+                        <button (click)='deleteTic(ticket)' class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>

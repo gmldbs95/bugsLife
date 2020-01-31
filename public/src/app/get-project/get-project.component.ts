@@ -17,21 +17,22 @@ export class GetProjectComponent implements OnInit {
               private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getThisProj();
-
+    
     this._route.params.subscribe((params: Params) => {
       console.log(params['id']);
       this.thisProjID = params['id'];
     });
+
+    this.getThisProj();
   } // END
 
   goToProjects(){
     this._router.navigate(['/projects'])
   }
 
-  // seeThisProj(){
-  //   this._router.navigate([`/get-project/${this.thisProjID}`]);
-  // }
+  seeThisProj(){
+    this._router.navigate([`/get-project/${this.thisProjID}`]);
+  }
 
   getThisProj(){
     this._route.params.subscribe((params) => {
@@ -51,11 +52,12 @@ export class GetProjectComponent implements OnInit {
     })
   }
 
-  // deleteTic(ticket){
-  //   let obs = this._httpService.deleteTicket(ticket._id, ticket)
-  //   obs.subscribe(data => {
-  //     console.log(`Deleting Ticket w/ID: ${ticket._id}`, ticket);
-  //     this.seeThisProj();
-  //   })
-  // }
+  deleteTic(ticket){
+    let obs = this._httpService.deleteTicket(ticket._id, ticket)
+    obs.subscribe(data => {
+      console.log(`Deleting Ticket w/ID: ${ticket._id}`, ticket);
+      this.getThisProj();
+      this.seeThisProj();
+    })
+  }
 }

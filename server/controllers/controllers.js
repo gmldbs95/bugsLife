@@ -105,7 +105,7 @@ module.exports = {
             })
     },
     deleteTicket: (req,res) => {
-        Project.findOneAndUpdate({}, {$pull: {'tickets': {'_id':req.params.id}}})
+        Project.findOneAndUpdate({'tickets._id': req.params.id}, {$pull: {'tickets': {'_id':req.params.id}}})
         .then(data => {
             res.json({ message: "success", results: data});
             Ticket.findOneAndDelete({_id: req.params.id})

@@ -25,4 +25,11 @@ export class TicketsComponent implements OnInit {
     })
   }
 
+  deleteTicket(ticket){
+    let obs = this._httpService.deleteTicket(ticket._id, ticket)
+    obs.subscribe(data => {
+      console.log(`Deleting ticket w/ID: ${ticket._id}`, ticket);
+      this.getAllProj();
+    })
+  }
 }

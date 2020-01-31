@@ -29,7 +29,7 @@ export class AddProjectComponent implements OnInit {
 
 
   seeAllProj(){
-    this._router.navigate(['/projects']);
+    this._router.navigate([`/get-project/${this.newProj._id}`]);
   }
 
   addNewProj(){

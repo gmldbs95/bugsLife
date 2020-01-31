@@ -19,7 +19,8 @@
                         <td>{{ticket.status}}</td>
                         <td [routerLink]="['/get-project', project._id]">{{project.name}}</td>
                         <td>
-                            <button [routerLink]="['/edit-ticket', ticket._id]" class="btn btn-warning">Edit/Update</button>
+                            <button [routerLink]="['/edit-ticket', ticket._id]" class="btn btn-warning">Edit/Update</button> | 
+                            <button (click)='deleteTicket(ticket)' class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 </tbody>
