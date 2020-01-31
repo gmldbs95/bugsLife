@@ -5,11 +5,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Ticket ID</th>
                         <th>Title</th>
-                        <th>Description</th>
-                        <th>Type</th>
                         <th>Priority</th>
+                        <th>Type</th>
                         <th>Status</th>
                         <th>Created at</th>
                         <th>Updated at</th>
@@ -18,16 +16,14 @@
                 </thead>
                 <tbody *ngFor='let project of projects'>
                     <tr *ngFor='let ticket of project.tickets'>
-                        <td>{{ticket._id}}</td>
-                        <td>{{ticket.title}}</td>
-                        <td>{{ticket.tic_desc}}</td>
-                        <td>{{ticket.type}}</td>
+                        <td><a [routerLink]="['/get-ticket', ticket._id]">{{ticket.title}}</a></td>
                         <td>{{ticket.priority}}</td>
+                        <td>{{ticket.type}}</td>
                         <td>{{ticket.status}}</td>
                         <td>{{project.createdAt}}</td>
                         <td>{{project.updatedAt}}</td>
                         <td>
-                            <button class="btn btn-warning">Edit/Update</button>
+                            <button [routerLink]="['/edit-ticket', ticket._id]" class="btn btn-warning">Edit/Update</button>
                         </td>
                     </tr>
                 </tbody>

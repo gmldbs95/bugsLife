@@ -7,7 +7,6 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Description</th>
                         <th>Created at</th>
                         <th>Updated at</th>
                         <th>Actions</th>
@@ -15,12 +14,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let project of projects'>
-                        <td>{{project.name}}</td>
-                        <td>{{project.desc}}</td>
+                        <td><a [routerLink]="['/get-project', project._id]">{{project.name}}</a></td>
                         <td>{{project.createdAt}}</td>
                         <td>{{project.updatedAt}}</td>
                         <td>
-                            <button class="btn btn-primary" [routerLink]="['/add-ticket', project._id]">Add Ticket</button> | 
+                            <button [routerLink]="['/add-ticket', project._id]" class="btn btn-primary">Add Ticket</button> | 
                             <button [routerLink]="['/edit-project', project._id]" class="btn btn-warning">Edit</button>
                         </td>
                     </tr>

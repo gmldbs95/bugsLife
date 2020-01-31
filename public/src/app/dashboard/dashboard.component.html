@@ -13,8 +13,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let project of projects'>
-                        <td>{{project.name}}</td>
-                        <td>{{project._id}}</td>
+                        <td [routerLink]="['/get-project', project._id]">{{project.name}}</td>
+                        <td [routerLink]="['/get-project', project._id]">{{project._id}}</td>
                         <td>
                             <button [routerLink]="['/get-project', project._id]" class="btn btn-primary">Details</button> | 
                             <button (click)='deleteProj(project)' class="btn btn-danger">Delete</button>
