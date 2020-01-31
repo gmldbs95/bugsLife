@@ -11,16 +11,22 @@ import { Router } from '@angular/router';
 export class AddProjectComponent implements OnInit {
 
   newProj: any;
+  projects = [];
 
   constructor(private _httpService: HttpService,
               private _router: Router) { }
 
   ngOnInit() {
+    this.getAllProj();
+    
     this.newProj = {
       name: '',
       desc:''
     }
   }
+
+
+
 
   seeAllProj(){
     this._router.navigate(['/projects']);
@@ -35,6 +41,14 @@ export class AddProjectComponent implements OnInit {
         desc:''
       };
       this.seeAllProj();
+    })
+  }
+
+  getAllProj(){
+    let obs = this._httpService.getAllProj();
+    obs.subscribe((data: any) => {
+      this.projects = data.results;
+      console.log('getting all projects...', data)
     })
   }
 

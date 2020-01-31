@@ -1,1 +1,15 @@
-<p>edit-project works!</p>
+<div class="container">
+    <div class="row">
+        <h3>Edit ticket: <span style="color: cornflowerblue;">{{thisProj.name}}</span></h3>
+        <div class="col-md-12">
+            <form (submit)="updateProj()">
+                <br>
+                <p>Project Name: <input type="text" name="thisProj.name" [(ngModel)]="thisProj.name" [value]='thisProj.name'></p>
+                <p>Project Description: </p>
+                <textarea name="thisProj.desc" cols="30" rows="5" [(ngModel)]="thisProj.desc" [value]='thisProj.desc'></textarea>
+                <br>
+                <button class="btn btn-success">Submit Edit</button>
+            </form>
+        </div>
+    </div>
+</div>
